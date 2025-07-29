@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İletişim - Cambridge Üniversitesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'tr',
+                includedLanguages: 'en,de,fr,ar,ru',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+        :root {
+            --bg: #f5f7fa;
+            --text: #1f1f1f;
+            --primary: #5c6df4;
+            --gradient: linear-gradient(135deg, #5c6df4, #8e44ad);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 60px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    nav a {
+      color: #333;
+      margin-left: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 4px;
+    }
+
+    .custom-lang {
+      position: relative;
+    }
+    #customLangSelect {
+      padding: 10px 30px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background-color: #ffffff;
+      color: #333;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      outline: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 12px;
+    }
+    #customLangSelect:hover {
+      border-color: #bbb;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    #customLangSelect:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(92, 109, 244, 0.2);
+    }
+    #google_translate_element {
+      display: none !important;
+      height: 0;
+      visibility: hidden;
+    }
+    .goog-logo-link,
+    .goog-te-gadget {
+      display: none !important;
+    }
+    .goog-te-banner-frame.skiptranslate,
+    body > .skiptranslate {
+      display: none !important;
+    }
+    
+    .nav-search {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+    }
+    .nav-search input {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      width: 180px;
+    }
+    .nav-search button {
+      padding: 8px 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    #suggestions {
+      position: absolute;
+      top: 42px;
+      left: 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      width: 100%;
+      max-height: 150px;
+      overflow-y: auto;
+      border-radius: 8px;
+      z-index: 999;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #suggestions li {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    #suggestions li:hover {
+      background: #f0f0f0;
+    }
+    
+    @keyframes highlightFlash {
+      0% { background-color: #ffffa0; } 
+      100% { background-color: transparent; }
+    }
+    .highlight {
+      animation: highlightFlash 2s ease-out;
+      border-radius: 4px; 
+    }
+    
+
+        .contact-form-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 80px 60px;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            margin: 160px auto 40px auto;
+            max-width: 1200px;
+        }
+
+        .contact-form {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #333;
+            resize: vertical;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        .submit-btn {
+            padding: 12px 24px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary);
+        }
+
+        .contact-details {
+            flex: 1;
+            padding: 20px;
+            border-left: 1px solid #ddd;
+        }
+
+        .contact-details h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .faq-section {
+            padding: 80px 60px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            margin: 40px auto;
+            max-width: 1200px;
+        }
+
+        .faq-section h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        .faq-item h4 {
+            font-size: 1.2rem;
+            color: var(--text);
+            margin-bottom: 10px;
+            cursor: pointer;
+            position: relative;
+            padding-right: 30px;
+        }
+
+        .faq-item h4::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .faq-item h4.active::after {
+            content: '-';
+        }
+
+        .faq-item p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item p.active {
+            max-height: 500px;
+            padding-top: 10px;
+        }
+
+        .additional-contact-section {
+            padding: 80px 60px;
+            background: #fff;
+            border-radius: 12px;
+            margin: 40px auto;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-method h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .contact-method p {
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #333;
+            color: white;
+            margin-top: 80px;
+        }
+
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+
+            nav {
+                margin-top: 10px;
+                margin-left: 0;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 0.9rem;
+            }
+
+            .header-right {
+                margin-top: 10px;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .nav-search {
+                margin-left: 0;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form-section {
+                flex-direction: column;
+                padding: 40px;
+            }
+
+            .contact-details {
+                border-left: none;
+                border-top: 1px solid #ddd;
+                padding-top: 20px;
+            }
+
+            .faq-section,
+            .additional-contact-section {
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Cambridge</h1>
+        <nav>
+          <a href="index.html">Anasayfa</a>
+          <a href="about.html">Hakkımızda</a>
+          <a href="fakulteler.html">Fakülteler</a>
+          <a href="etkinlikler.html">Etkinlikler</a>
+          <a href="iletisim.html" class="active">İletişim</a>
+        </nav>
+        <div id="google_translate_element"></div>
+        <div class="custom-lang">
+            <select id="customLangSelect">
+              <option value="">🌐 Dil Seç</option>
+              <option value="tr">🇹🇷 Türkçe</option>
+              <option value="en">🇬🇧 English</option>
+              <option value="de">🇩🇪 Deutsch</option>
+              <option value="fr">🇫🇷 Français</option>
+              <option value="ar">🇸🇦 Arabic</option>
+              <option value="ru">🇷🇺 Русский</option>
+            </select>
+          </div>
+          <div class="nav-search">
+            <input type="text" id="searchInput" placeholder="Ara..." oninput="showSuggestions()" />
+            <button onclick="performSearch()">🔍</button>
+            <ul id="suggestions"></ul>
+          </div>
+          
+          
+      </header>
+
+    <section class="contact-form-section">
+        <div class="contact-form">
+            <h3>İletişim Formu</h3>
+            <form id="contactForm" onsubmit="return submitForm();">
+                <div class="form-group">
+                    <label for="name">Adınız Soyadınız</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-posta Adresiniz</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Konu</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mesajınız</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Gönder</button>
+            </form>
+            <div id="form-message" style="display: none; margin-top: 20px; padding: 10px; background-color: #d4edda; /* Açık yeşil bir renk */
+            color: green;
+            text-align: center;">
+                Mesajınız başarıyla gönderildi!
+            </div>
+        </div>
+        <div class="contact-details">
+            <h3>İletişim Bilgilerimiz</h3>
+            <div class="contact-info">
+                <h4>Genel Merkez</h4>
+                <p>
+                    Cambridge Üniversitesi,<br>
+                    Cambridge, CB2 1TN,<br>
+                    Birleşik Krallık
+                </p>
+            </div>
+            <div class="contact-info">
+                <h4>Telefon</h4>
+                <p>+44 1223 337733</p>
+            </div>
+            <div class="contact-info">
+                <h4>E-posta</h4>
+                <p>info@cam.ac.uk</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h3>Sıkça Sorulan Sorular</h3>
+        <div class="faq-item">
+            <h4 onclick="toggleFAQ(this)">Başvuru süreci nasıl işliyor?</h4>
+            <p>
+                Başvuru süreci, üniversitemizin resmi web sitesi üzerinden online olarak gerçekleştirilir.
+                Gerekli belgeler ve başvuru adımları hakkında detaylı bilgiye web sitemizdeki "Başvuru" bölümünden ulaşabilirsiniz.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4 onclick="toggleFAQ(this)">Burs imkanları nelerdir?</h4>
+            <p>
+                Üniversitemiz, başarılı ve ihtiyaç sahibi öğrencilere çeşitli burs imkanları sunmaktadır.
+                Burs türleri, başvuru koşulları ve son başvuru tarihleri hakkında daha fazla bilgi için lütfen burs ofisimizle iletişime geçin.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4 onclick="toggleFAQ(this)">Konaklama seçenekleri nelerdir?</h4>
+            <p>
+                Üniversitemiz, öğrencilere yurt ve apartman gibi çeşitli konaklama seçenekleri sunmaktadır.
+                Konaklama birimleri, ücretler ve başvuru süreci hakkında detaylı bilgiye web sitemizdeki "Konaklama" bölümünden ulaşabilirsiniz.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4 onclick="toggleFAQ(this)">Hangi bölümler mevcut?</h4>
+            <p>
+                Üniversitemizde Fen Edebiyat, Mühendislik, Tıp, Hukuk ve Eğitim Fakülteleri bulunmaktadır.
+                Her fakülteye bağlı çeşitli bölümler hakkında detaylı bilgiye web sitemizdeki "Fakülteler" bölümünden ulaşabilirsiniz.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4 onclick="toggleFAQ(this)">Uluslararası öğrenci kabul ediyor musunuz?</h4>
+            <p>
+                Evet, üniversitemiz uluslararası öğrencilere açıktır. Başvuru koşulları, vize işlemleri ve diğer detaylar hakkında bilgi almak için lütfen Uluslararası Öğrenci Ofisi ile iletişime geçin.
+            </p>
+        </div>
+    </section>
+
+    <section class="additional-contact-section">
+        <div class="contact-method">
+            <h4>Telefon</h4>
+            <p>+44 1223 337733</p>
+        </div>
+        <div class="contact-method">
+            <h4>E-posta</h4>
+            <p>info@cam.ac.uk</p>
+        </div>
+        <div class="contact-method">
+            <h4>Canlı Destek</h4>
+            <p>Hafta içi 09:00 - 17:00</p>
+        </div>
+        <div class="contact-method">
+            <h4>Sosyal Medya</h4>
+            <p>Bizi takip edin!</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Cambridge Üniversitesi. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        function showSuggestions() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const suggestionsList = document.getElementById("suggestions");
+            suggestionsList.innerHTML = "";
+
+            if (!input) {
+                suggestionsList.style.display = "none";
+                return;
+            }
+
+            const allText = [];
+            document.querySelectorAll("h2, h3, h4, p").forEach(el => {
+                allText.push(el.textContent);
+            });
+
+            const matches = new Set();
+            const maxSuggestions = 5;
+
+            allText.forEach(text => {
+                if (text.toLowerCase().includes(input) && matches.size < maxSuggestions) {
+                    let suggestionText = text.substring(0, 50);
+                    if (text.length > 50) suggestionText += "...";
+                    matches.add(suggestionText);
+                }
+            });
+
+            if (matches.size > 0) {
+                matches.forEach(matchText => {
+                    const li = document.createElement("li");
+                    li.textContent = matchText;
+                    li.onclick = () => {
+                        document.getElementById("searchInput").value = input;
+                        performSearch(input);
+                        suggestionsList.style.display = 'none';
+                    };
+                    suggestionsList.appendChild(li);
+                });
+                suggestionsList.style.display = 'block';
+            } else {
+                suggestionsList.style.display = "none";
+            }
+        }
+
+        function performSearch() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const elements = document.querySelectorAll("h2, h3, h4, p");
+            let matchCount = 0;
+            let firstMatch = null;
+
+            elements.forEach(el => {
+                const text = el.textContent.toLowerCase();
+                if (input && text.includes(input)) {
+                    el.classList.add("highlight");
+                    setTimeout(() => el.classList.remove("highlight"), 2000);
+
+                    if (!firstMatch) firstMatch = el;
+                    matchCount++;
+                } else {
+                    el.style.backgroundColor = "transparent";
+                }
+            });
+
+            if (firstMatch) {
+                firstMatch.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }
+
+            const resultText = document.getElementById("searchResult");
+            if (input.length < 2) {
+                resultText.textContent = `Lütfen en az 2 karakter girin.`;
+            } else if (matchCount === 0) {
+                resultText.textContent = `"${input}" ile eşleşen sonuç bulunamadı.`;
+            } else {
+                resultText.textContent = `${matchCount} sonuç bulundu.`;
+            }
+        }
+
+        function changeLanguage(googleLangCode) {
+            if (!googleTranslateElementInit.triggered) return;
+
+            const interval = setInterval(() => {
+                const select = document.querySelector("select.goog-te-combo");
+                if (select) {
+                    select.value = googleLangCode;
+                    select.dispatchEvent(new Event("change"));
+                    clearInterval(interval);
+                }
+            }, 500);
+        }
+
+        document.getElementById("customLangSelect").addEventListener("change", function() {
+            const selectedLang = this.value;
+            if (selectedLang) {
+                const url = new URL(window.location);
+                url.searchParams.set("lang", selectedLang);
+                window.history.replaceState({}, "", url);
+
+                localStorage.setItem("selectedLanguage", selectedLang);
+
+                changeLanguage(selectedLang);
+            }
+        });
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const storedLang = localStorage.getItem("selectedLanguage");
+            const urlLang = new URLSearchParams(window.location.search).get("lang");
+
+            const langCode = urlLang || storedLang;
+
+            if (langCode) {
+                document.getElementById("customLangSelect").value = langCode;
+                changeLanguage(langCode);
+            }
+        });
+
+        function toggleFAQ(element) {
+            element.classList.toggle("active");
+            element.nextElementSibling.classList.toggle("active");
+        }
+
+        function submitForm() {
+            const form = document.getElementById('contactForm');
+            const messageDiv = document.getElementById('form-message');
+
+            setTimeout(() => {
+                messageDiv.style.display = 'block';
+                form.reset(); 
+            }, 2000);
+
+            return false; 
+        }
+    </script>
+</body>
+
+</html>

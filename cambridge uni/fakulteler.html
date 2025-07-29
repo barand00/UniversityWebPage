@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fakülteler - Cambridge Üniversitesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'tr',
+                includedLanguages: 'en,de,fr,ar,ru',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+        :root {
+            --bg: #f5f7fa;
+            --text: #1f1f1f;
+            --primary: #5c6df4;
+            --gradient: linear-gradient(135deg, #5c6df4, #8e44ad);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 60px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    nav a {
+      color: #333;
+      margin-left: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 4px;
+    }
+
+    .custom-lang {
+      position: relative;
+    }
+    #customLangSelect {
+      padding: 10px 30px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background-color: #ffffff;
+      color: #333;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      outline: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 12px;
+    }
+    #customLangSelect:hover {
+      border-color: #bbb;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    #customLangSelect:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(92, 109, 244, 0.2);
+    }
+    #google_translate_element {
+      display: none !important;
+      height: 0;
+      visibility: hidden;
+    }
+    .goog-logo-link,
+    .goog-te-gadget {
+      display: none !important;
+    }
+    .goog-te-banner-frame.skiptranslate,
+    body > .skiptranslate {
+      display: none !important;
+    }
+    
+    .nav-search {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+    }
+    .nav-search input {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      width: 180px;
+    }
+    .nav-search button {
+      padding: 8px 12px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    #suggestions {
+      position: absolute;
+      top: 42px;
+      left: 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      width: 100%;
+      max-height: 150px;
+      overflow-y: auto;
+      border-radius: 8px;
+      z-index: 999;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #suggestions li {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    #suggestions li:hover {
+      background: #f0f0f0;
+    }
+    
+    @keyframes highlightFlash {
+      0% { background-color: #ffffa0; } 
+      100% { background-color: transparent; }
+    }
+    .highlight {
+      animation: highlightFlash 2s ease-out;
+      border-radius: 4px; 
+    }
+    
+    .hero {
+      height: 280px;
+      background: url('images/fakultelerimizyazi.avif') center center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80px; 
+      position: relative;
+      color: white;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero h2 {
+      position: relative;
+      z-index: 2;
+      font-size: 2.5rem;
+    }
+
+        .faculties-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .faculties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .faculty-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faculty-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .faculty-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .faculty-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            gap: 6px;
+            position: relative;
+        }
+
+        .nav-search input {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            width: 180px;
+        }
+
+        .nav-search button {
+            padding: 8px 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            aria-label: "Arama Yap",
+        }
+
+        #suggestions {
+            position: absolute;
+            top: 42px;
+            left: 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            width: 100%;
+            max-height: 150px;
+            overflow-y: auto;
+            border-radius: 8px;
+            z-index: 999;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #suggestions li {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        #suggestions li:hover {
+            background: #f0f0f0;
+        }
+
+        .custom-lang {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        #customLangSelect {
+            padding: 10px 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background-color: #ffffff;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 12px;
+        }
+
+        #customLangSelect:hover {
+            border-color: #bbb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        #customLangSelect:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(92, 109, 244, 0.2);
+        }
+
+        #google_translate_element {
+            display: none !important;
+            height: 0;
+            visibility: hidden;
+        }
+
+        .goog-logo-link,
+        .goog-te-gadget {
+            display: none !important;
+        }
+
+        .goog-te-banner-frame.skiptranslate,
+        body>.skiptranslate {
+            display: none !important;
+        }
+
+        footer {
+            background: #f0f0f0;
+            padding: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 30px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .faculties-grid {
+                grid-template-columns: 1fr;
+
+            }
+        }
+
+        @keyframes highlightFlash {
+            0% {
+                background-color: #ffffa0;
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        .highlight {
+            animation: highlightFlash 2s ease-out;
+        }
+
+        .footer {
+  background: #f8f9fb;
+  padding: 60px 20px 30px;
+  color: #333;
+  font-size: 0.95rem;
+  border-top: 1px solid #ddd;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+.footer-logo h2 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links h4 {
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #555;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-social h4 {
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+.footer-social .social-icons a {
+  margin-right: 12px;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.footer-social .social-icons img {
+  height: 24px;
+  width: 24px;
+}
+
+.footer-social .social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #777;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-social .social-icons a {
+    margin: 0 10px;
+  }
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Cambridge</h1>
+        <nav>
+          <a href="index.html">Anasayfa</a>
+          <a href="about.html">Hakkımızda</a>
+          <a href="fakulteler.html" class="active">Fakülteler</a>
+          <a href="etkinlikler.html">Etkinlikler</a>
+          <a href="iletisim.html">İletişim</a>
+        </nav>
+        <div id="google_translate_element"></div>
+        <div class="custom-lang">
+            <select id="customLangSelect">
+              <option value="">🌐 Dil Seç</option>
+              <option value="tr">🇹🇷 Türkçe</option>
+              <option value="en">🇬🇧 English</option>
+              <option value="de">🇩🇪 Deutsch</option>
+              <option value="fr">🇫🇷 Français</option>
+              <option value="ar">🇸🇦 Arabic</option>
+              <option value="ru">🇷🇺 Русский</option>
+            </select>
+          </div>
+          <div class="nav-search">
+            <input type="text" id="searchInput" placeholder="Ara..." oninput="showSuggestions()" />
+            <button onclick="performSearch()">🔍</button>
+            <ul id="suggestions"></ul>
+          </div>
+          
+          
+      </header>
+
+    <section class="hero">
+        <h2>Fakültelerimiz</h2>
+    </section>
+
+    <section class="faculties-section">
+        <div class="faculties-grid">
+          <div class="faculty-card" data-faculty="hukuk" onclick="location.href='hukukfakultesi.html'" style="cursor: pointer;">
+            <img src="images/faculty-hukuk.jpg" alt="Hukuk Fakültesi">
+            <h3>Hukuk Fakültesi</h3>
+            <p>Adaletin ve hukukun evrensel ilkelerini inceleyin.</p>
+        </div>        
+            <div class="faculty-card" data-faculty="fen edebiyat" onclick="location.href='fenedebiyatfak.html'" style="cursor: pointer;">
+                <img src="images/faculty-fen-edebiyat.jpg" alt="Fen Edebiyat Fakültesi">
+                <h3>Fen Edebiyat Fakültesi</h3>
+                <p>Bilim, edebiyat ve sosyal bilimlerde derinlemesine bilgi edinin.</p>
+            </div>
+            <div class="faculty-card" data-faculty="sanat" onclick="location.href='sanatfak.html'" style="cursor: pointer;">
+                <img src="images/faculty-sanat.jpg" alt="Sanat ve Beşeri Bilimler Fakültesi">
+                <h3>Sanat ve Beşeri Bilimler Fakültesi</h3>
+                <p>Tarih, felsefe, edebiyat ve güzel sanatlar alanlarında uzmanlaşın.</p>
+            </div>
+            <div class="faculty-card" data-faculty="mimarlik" onclick="location.href='mimarlikfak.html'" style="cursor: pointer;">
+                <img src="images/faculty-mimarlik.jpg" alt="Mimarlık Fakültesi">
+                <h3>Mimarlık Fakültesi</h3>
+                <p>Yaratıcı tasarımlarla şehirlere ve yaşam alanlarına değer katın.</p>
+            </div>            
+              <div class="faculty-card" data-faculty="muhendislik" onclick="location.href='muhendislikfak.html'" style="cursor: pointer;">
+                <img src="images/faculty-muhendislik.jpg" alt="Mühendislik Fakültesi">
+                <h3>Mühendislik Fakültesi</h3>
+                <p>Teknolojiyi şekillendirin, geleceği inşa edin.</p>
+            </div>            
+              <div class="faculty-card" data-faculty="tip" onclick="location.href='tipfak.html'" style="cursor: pointer;">
+                <img src="images/faculty-tip.jpg" alt="Tıp Fakültesi">
+                <h3>Tıp Fakültesi</h3>
+                <p>İnsan sağlığına adanmış bir kariyere adım atın.</p>
+            </div>           
+              <div class="faculty-card" data-faculty="saglik" onclick="location.href='saglikfak.html'" style="cursor: pointer;">
+                <img src="images/faculty-saglik.jpg" alt="Sağlık Bilimleri Fakültesi">
+                <h3>Sağlık Bilimleri Fakültesi</h3>
+                <p>İnsan sağlığına adanmış bir kariyere adım atın.</p>
+            </div>           
+              <div class="faculty-card" data-faculty="adalet" onclick="location.href='adaletfak.html'" style="cursor: pointer;">
+                <img src="images/faculty-adalet.jpg" alt="Adalet Yüksekokulu">
+                <h3>Adalet Meslek Yüksekokulu</h3>
+                <p>Hukuk alanında uzmanlaşmış profesyoneller yetiştirin.</p>
+            </div>           
+              <div class="faculty-card" data-faculty="meslek" onclick="location.href='meslekfak.html'" style="cursor: pointer;">
+                <img src="images/faculty-meslek.jpg" alt="Meslek Yüksekokulu">
+                <h3>Meslek Yüksekokulu</h3>
+                <p>Çeşitli sektörlere yönelik nitelikli iş gücü kazandırın.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>Cambridge Üniversitesi</h2>
+          <p>Bilimin ve kültürün buluştuğu yer.</p>
+        </div>
+    
+        <div class="footer-links">
+          <h4>Bağlantılar</h4>
+          <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="about.html">Hakkımızda</a></li>
+            <li><a href="fakulteler.html">Fakülteler</a></li>
+            <li><a href="etkinlikler.html">Etkinlikler</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-social">
+          <h4>Bizi Takip Edin</h4>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/cambridge.university/"><img src="images/facebook.jpg" alt="Facebook"></a>
+            <a href="https://www.instagram.com/cambridgeuniversity/"><img src="images/instagram.jpg" alt="İnstagram"></a>
+            <a href="https://twitter.com/Cambridge_Uni"><img src="images/twitter.jpg" alt="Twitter"></a>
+            <a href="https://uk.linkedin.com/school/university-of-cambridge/"><img src="images/linkedin.jpg" alt="LinkedIn"></a>
+            <a href="https://www.youtube.com/user/cambridgeuniversity"><img src="images/red-flag-icon-youtube-logo-icon-design-youtube-play-buttons-arrow-rectangle-symbol-png-clipart.jpg" alt="YouTube"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Cambridge Üniversitesi. Tüm hakları saklıdır.
+      </div>
+    </footer>
+
+    <script>
+        function performSearch(value = null) {
+            const query = value || document.getElementById("searchInput").value.toLowerCase();
+            const facultyCards = document.querySelectorAll(".faculty-card");
+            let resultsFound = false;
+
+            facultyCards.forEach(card => {
+                const title = card.querySelector("h3").textContent.toLowerCase();
+                const description = card.querySelector("p").textContent.toLowerCase();
+
+                if (title.includes(query) || description.includes(query)) {
+                    card.style.display = "block";
+                    card.classList.add("highlight");
+                    setTimeout(() => card.classList.remove("highlight"), 2000);
+                    resultsFound = true;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            if (!resultsFound) {
+                alert("Aranan kriterlere uygun sonuç bulunamadı.");
+            }
+
+            document.getElementById("suggestions").innerHTML = "";
+        }
+
+        function showSuggestions() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const suggestionsList = document.getElementById("suggestions");
+            suggestionsList.innerHTML = "";
+
+            if (!input) return;
+
+            const facultyCards = document.querySelectorAll(".faculty-card");
+            const matches = [];
+
+            facultyCards.forEach(card => {
+                const title = card.querySelector("h3").textContent.trim();
+                const description = card.querySelector("p").textContent.trim();
+                const text = title + " " + description;
+                if (text.toLowerCase().includes(input) && !matches.includes(title)) {
+                    matches.push(title);
+                }
+            });
+
+            matches.slice(0, 5).forEach(match => {
+                const li = document.createElement("li");
+                li.textContent = match;
+                li.onclick = () => {
+                    document.getElementById("searchInput").value = match;
+                    performSearch(match.toLowerCase());
+                };
+                suggestionsList.appendChild(li);
+            });
+        }
+
+        function changeLanguage(langCode) {
+            const langMap = {
+                tr: "tr",
+                en: "en",
+                de: "de",
+                fr: "fr",
+                ar: "ar",
+                ru: "ru"
+            };
+
+            const googleLangCode = langMap[langCode];
+            if (!googleLangCode) return;
+
+            const interval = setInterval(() => {
+                const select = document.querySelector("select.goog-te-combo");
+                if (select) {
+                    select.value = googleLangCode;
+                    select.dispatchEvent(new Event("change"));
+                    clearInterval(interval);
+                }
+            }, 500);
+        }
+
+        document.getElementById("customLangSelect").addEventListener("change", function () {
+            const selectedLang = this.value;
+            if (selectedLang) {
+                const url = new URL(window.location);
+                url.searchParams.set("lang", selectedLang);
+                window.history.replaceState({}, "", url);
+
+                localStorage.setItem("selectedLanguage", selectedLang);
+
+                changeLanguage(selectedLang);
+            }
+        });
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const storedLang = localStorage.getItem("selectedLanguage");
+            const urlLang = new URLSearchParams(window.location.search).get("lang");
+
+            const langCode = urlLang || storedLang;
+
+            if (langCode) {
+                document.getElementById("customLangSelect").value = langCode;
+                changeLanguage(langCode);
+            }
+        });
+    </script>

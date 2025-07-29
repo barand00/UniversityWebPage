@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cambridge Üniversitesi - Sanat Fakültesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'tr',
+                includedLanguages: 'en,de,fr,ar,ru',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+        :root {
+            --bg: #f9f9f9;
+            --text: #333;
+            --primary: #0078d7;
+            --primary-light: #e0f7fa;
+            --secondary: #6c757d;
+            --heading: #2c3e50;
+            --border: #ddd;
+            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        nav a {
+            color: #333;
+            margin-left: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 4px;
+        }
+
+        #suggestions {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: auto;
+            background-color: #fff;
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0.25rem;
+            box-shadow: var(--box-shadow);
+            display: none;
+            z-index: 10;
+            width: 250px;
+        }
+
+        #suggestions li {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        #suggestions li:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem 0;
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        main h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--heading);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        main p {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        .faculty-content {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .faculty-sidebar {
+            width: 280px;
+            background: #fff;
+            border-radius: 0.5rem;
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            position: sticky;
+            top: 8rem;
+            height: fit-content;
+            margin-top: 150px;
+        }
+
+        .faculty-sidebar h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--heading);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .faculty-sidebar ul {
+            list-style: none;
+        }
+
+        .faculty-sidebar li {
+            margin-bottom: 1.2rem;
+        }
+
+        .faculty-sidebar a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: block;
+            padding: 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .faculty-sidebar a:hover {
+            color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .faculty-sidebar a.active {
+            background-color: var(--primary);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .faculty-main-content {
+            flex: 1;
+            background: #fff;
+            border-radius: 0.5rem;
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-top: 150px;
+        }
+
+        .faculty-intro {
+            margin-bottom: 2rem;
+        }
+
+        .faculty-intro h3 {
+            font-size: 2rem;
+            color: var(--heading);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .faculty-section {
+            margin-bottom: 3rem;
+        }
+
+        .faculty-section h3 {
+            font-size: 1.8rem;
+            color: var(--heading);
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+
+        .faculty-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .faculty-navigation a {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .faculty-navigation a:hover {
+            background: #0056b3;
+        }
+
+        .current-faculty {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        footer {
+            background: #f0f0f0;
+            padding: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 60px;
+        }
+
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 10px 14px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 15px 30px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .gallery-section {
+            text-align: center;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            margin-top: 40px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-track img {
+            width: 100%;
+            flex-shrink: 0;
+            object-fit: cover;
+            height: 650px;
+        }
+
+        .carousel button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(92, 109, 244, 0.8);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+        }
+
+        .carousel .prev {
+            left: 10px;
+        }
+
+        .carousel .next {
+            right: 10px;
+        }
+
+        .custom-lang {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        #customLangSelect {
+            padding: 10px 30px;
+            font-size: 0.95rem;
+            font-weight: 300;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background-color: #ffffff;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 12px;
+        }
+
+        #customLangSelect:hover {
+            border-color: #bbb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        #customLangSelect:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(92, 109, 244, 0.2);
+        }
+
+        #google_translate_element {
+            display: none !important;
+            height: 0;
+            visibility: hidden;
+        }
+
+        .goog-logo-link,
+        .goog-te-gadget {
+            display: none !important;
+        }
+
+        .goog-te-banner-frame.skiptranslate,
+        body>.skiptranslate {
+            display: none !important;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            gap: 6px;
+            position: relative;
+        }
+
+        .nav-search input {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            width: 180px;
+        }
+
+        .nav-search button {
+            padding: 8px 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        #suggestions {
+            position: absolute;
+            top: 42px;
+            left: 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            width: 100%;
+            max-height: 150px;
+            overflow-y: auto;
+            border-radius: 8px;
+            z-index: 999;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #suggestions li {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        #suggestions li:hover {
+            background: #f0f0f0;
+        }
+
+        @keyframes highlightFlash {
+            0% {
+                background-color: #cfe2ff;
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        .highlight {
+            animation: highlightFlash 2s ease forwards;
+            border-radius: 6px;
+        }
+
+        .faculty-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faculty-table thead {
+            background-color: #1E88E5;
+            color: #ffffff;
+        }
+
+        .faculty-table thead th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .faculty-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .faculty-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+
+        .faculty-table tbody tr:hover {
+            background-color: #e6f0ff;
+        }
+
+
+        .footer {
+            background: #f8f9fb;
+            padding: 60px 20px 30px;
+            color: #333;
+            font-size: 0.95rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            gap: 40px;
+        }
+
+        .footer-logo h2 {
+            color: var(--primary);
+            font-size:1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #555;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-social h4 {
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .footer-social .social-icons a {
+            margin-right: 12px;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .footer-social .social-icons img {
+            height: 24px;
+            width: 24px;
+        }
+
+        .footer-social .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #777;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-social .social-icons a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Cambridge</h1>
+        <nav>
+            <a href="index.html">Ana sayfa</a>
+            <a href="about.html">Hakkımızda</a>
+            <a href="fakulteler.html" class="active">Fakülteler</a>
+            <a href="etkinlikler.html">Etkinlikler</a>
+            <a href="iletişim.html">İletişim</a>
+        </nav>
+        <div id="google_translate_element"></div>
+        <div class="custom-lang">
+            <select id="customLangSelect">
+                <option value="">🌐 Dil Seç</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="ar">🇸🇦 Arabic</option>
+                <option value="ru">🇷🇺 Русский</option>
+            </select>
+        </div>
+        <div class="nav-search">
+            <input type="text" id="searchInput" placeholder="Ara..." oninput="showSuggestions()" />
+            <button onclick="performSearch()">🔍</button>
+            <ul id="suggestions"></ul>
+        </div>
+
+
+    </header>
+    <main>
+        <div class="faculty-content">
+            <div class="faculty-sidebar">
+                <h2>Fakülte Sekmeleri</h2>
+                <ul>
+                    <li class="category"><a href="#sanat-fakultesi" class="active">Sanat Fakültesi</a></li>
+                    <li class="category"><a href="#fakülte-hakkinda">Fakülte Hakkında</a></li>
+                    <li class="category"><a href="#akademik-kadro">Akademik Kadro</a></li>
+                    <li class="category"><a href="#bolumler">Bölümler</a></li>
+                    <li class="category"><a href="#arastirma">Araştırma</a></li>
+                    <li class="category"><a href="#ogrenci-hayati">Öğrenci Hayatı</a></li>
+                    <li class="category"><a href="#basvuru">Başvuru</a></li>
+                </ul>
+            </div>
+            <div class="faculty-main-content">
+                <h1 id="sanat-fakultesi-title" data-tr="Sanat Fakültesi">Sanat Fakültesi</h1>
+                <div id="sanat-fakultesi" class="faculty-section">
+                    <h3 data-tr="Sanat Fakültesi'ne Hoş Geldiniz">Sanat Fakültesi'ne Hoş Geldiniz</h3>
+                    <p data-tr="cambridge_sanat_aciklama">
+                        Cambridge Üniversitesi Sanat Fakültesi, öğrencilere sanatın çeşitli
+                        disiplinlerinde derinlemesine eğitim ve yaratıcılıklarını geliştirme
+                        olanağı sunan, köklü bir kurumdur. Fakültemiz, sanat dünyasında tanınmış
+                        ve deneyimli akademisyenlerden oluşmaktadır.
+                    </p>
+                    <p data-tr="cambridge_sanat_firsat">
+                        Öğrencilerimiz, sanatsal ifade, eleştirel düşünme ve estetik anlayışlarını
+                        geliştirerek, sanatın farklı alanlarında uzmanlaşma fırsatı bulurlar.
+                        Fakültemiz, modern sanat stüdyoları, atölyeler ve sergi alanlarıyla donatılmış
+                        olup, öğrencilere ilham verici bir öğrenme ortamı sunar.
+                    </p>
+                </div>
+                <div id="fakülte-hakkinda" class="faculty-section" style="display: none;">
+                    <h3 data-tr="fakulte_hakkinda_baslik">Fakülte Hakkında</h3>
+                    <p data-tr="fakulte_hakkinda_aciklama_1">
+                        Cambridge Üniversitesi Sanat Fakültesi, zengin bir tarihe sahip olup,
+                        sanatın çeşitli alanlarında öncü olan mezunlar vermiştir.
+                        Fakülte, yaratıcılık, yenilikçilik ve kültürel mirasın korunması gibi değerlere önem verir.
+                    </p>
+                    <p data-tr="fakulte_hakkinda_aciklama_2">
+                        Misyonumuz, öğrencilere sadece sanatsal beceriler kazandırmakla kalmayıp,
+                        aynı zamanda onları sanatın toplumsal ve kültürel bağlamını anlamaya
+                        teşvik etmektir. Bu amaçla, öğrencilerimizi sergiler, atölye çalışmaları ve sanat projeleriyle destekleriz.
+                    </p>
+                </div>
+                <div id="akademik-kadro" class="faculty-section" style="display: none;">
+                    <h3 data-tr="akademik_kadro_baslik">Akademik Kadro</h3>
+                    <table class="faculty-table" data-tr="akademik_kadro_tablosu">
+                        <thead>
+                            <tr>
+                                <th data-tr="isim">İsim</th>
+                                <th data-tr="unvan">Unvan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="İsim">Prof. Dr. Isabella Rossi</td>
+                                <td data-label="Unvan">Profesör</td>
+                            </tr>
+                            <tr>
+                                <td data-label="İsim">Doç. Dr. Jean-Pierre Dubois</td>
+                                <td data-label="Unvan">Doçent</td>
+                            </tr>
+                            <tr>
+                                <td data-label="İsim">Yrd. Doç. Dr. Anya Petrova</td>
+                                <td data-label="Unvan">Yardımcı Doçent</td>
+                            </tr>
+                            <tr>
+                                <td data-label="İsim">Öğr. Gör. Kenji Tanaka</td>
+                                <td data-label="Unvan">Öğretim Görevlisi</td>
+                            </tr>
+                            <tr>
+                                <td data-label="İsim">Prof. Dr. Sofia Rodriguez</td>
+                                <td data-label="Unvan">Profesör</td>
+                            </tr>
+                            <tr>
+                                <td data-label="İsim">Doç. Dr. Lars Svensson</td>
+                                <td data-label="Unvan">Doçent</td>
+                            </tr>
+                            <tr>
+                                <td data-label="İsim">Yrd. Doç. Dr. Mei Ling</td>
+                                <td data-label="Unvan">Yardımcı Doçent</td>
+                            </tr>
+                            <tr>
+                                <td data-label="İsim">Öğr. Gör. Diego Fernández</td>
+                                <td data-label="Unvan">Öğretim Görevlisi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="bolumler" class="faculty-section" style="display: none;">
+                    <h3 data-tr="bolumler_baslik">Bölümler</h3>
+                    <p data-tr="bolumler_aciklama_1">
+                        Sanat Fakültesi, lisans ve lisansüstü düzeyde çeşitli bölüm
+                        seçenekleri sunar. Öğrenciler, Resim, Heykel, Grafik Tasarım,
+                        Seramik ve Sanat Tarihi gibi farklı disiplinlerde eğitim alabilirler.
+                    </p>
+                    <p data-tr="bolumler_aciklama_2">
+                        Bölümlerimiz, öğrencilere hem teorik bilgi hem de pratik beceriler
+                        kazandırmayı hedefler. Öğrencilerimize atölye çalışmaları, sergi
+                        projeleri ve sanat gezileri gibi çeşitli öğrenme fırsatları sunulur.
+                    </p>
+                </div>
+                <div id="arastirma" class="faculty-section" style="display: none;">
+                    <h3 data-tr="arastirma_baslik">Araştırma</h3>
+                    <p data-tr="arastirma_aciklama_1">
+                        Sanat Fakültesi, sanatın çeşitli alanlarında araştırma ve
+                        projelerine önem verir. Öğrencilerimiz, öğretim üyeleriyle birlikte
+                        sanat projelerinde yer alarak, yaratıcılıklarını ve araştırma
+                        becerilerini geliştirme fırsatı bulurlar.
+                    </p>
+                    <p data-tr="arastirma_aciklama_2">
+                        Fakültemiz, araştırma sonuçlarını sergiler, yayınlar ve
+                        sanat topluluğuyla paylaşır. Bu sayede, öğrencilerimiz hem
+                        sanat dünyasına katkıda bulunur hem de kendi sanatsal vizyonlarını
+                        geliştirirler.
+                    </p>
+                </div>
+                <div id="ogrenci-hayati" class="faculty-section" style="display: none;">
+                    <h3 data-tr="ogrenci_hayati_baslik">Öğrenci Hayatı</h3>
+                    <p data-tr="ogrenci_hayati_aciklama_1">
+                        Sanat Fakültesi, öğrencilerin sadece sanatsal değil, sosyal ve
+                        kültürel gelişimlerine de önem verir. Öğrenci kulüpleri, atölye
+                        çalışmaları, sanat etkinlikleri ve sergiler, öğrencilerin üniversite
+                        yaşamını zenginleştirir.
+                    </p>
+                    <p data-tr="ogrenci_hayati_aciklama_2">
+                        Fakültemiz, öğrencilere sanatsal kariyer planlama ve profesyonel
+                        gelişim konusunda da destek olur. Kariyer danışmanlığı hizmetleri,
+                        öğrencilerin staj ve sanat dünyasındaki iş olanaklarına erişimini kolaylaştırır.
+                    </p>
+                </div>
+                <div id="basvuru" class="faculty-section" style="display: none;">
+                    <h3 data-tr="basvuru_baslik">Başvuru</h3>
+                    <p data-tr="basvuru_aciklama_1">
+                        Sanat Fakültesi'ne başvuru süreci hakkında detaylı bilgiler
+                        için lütfen üniversitemizin resmi web sitesini ziyaret edin.
+                        Başvuru koşulları, gerekli belgeler ve son başvuru tarihleri
+                        gibi bilgiler, web sitemizde yer almaktadır.
+                    </p>
+                    <p data-tr="basvuru_aciklama_2">
+                        Fakültemiz, yetenekli öğrencilere burs olanakları da sunar.
+                        Burslar hakkında bilgi almak ve başvuru yapmak için lütfen
+                        ilgili bölüme başvurun.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <button id="scrollTopBtn" title="Yukarı Çık">↑</button>
+
+    <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-logo">
+            <h2>Cambridge Üniversitesi</h2>
+            <p>Bilimin ve kültürün buluştuğu yer.</p>
+          </div>
+      
+          <div class="footer-links">
+            <h4>Bağlantılar</h4>
+            <ul>
+              <li><a href="index.html">Anasayfa</a></li>
+              <li><a href="about.html">Hakkımızda</a></li>
+              <li><a href="fakulteler.html">Fakülteler</a></li>
+              <li><a href="etkinlikler.html">Etkinlikler</a></li>
+              <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+          </div>
+      
+          <div class="footer-social">
+            <h4>Bizi Takip Edin</h4>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/cambridge.university/"><img src="images/facebook.jpg" alt="Facebook"></a>
+              <a href="https://www.instagram.com/cambridgeuniversity/"><img src="images/instagram.jpg" alt="İnstagram"></a>
+              <a href="https://twitter.com/Cambridge_Uni"><img src="images/twitter.jpg" alt="Twitter"></a>
+              <a href="https://uk.linkedin.com/school/university-of-cambridge/"><img src="images/linkedin.jpg" alt="LinkedIn"></a>
+              <a href="https://www.youtube.com/user/cambridgeuniversity"><img src="images/red-flag-icon-youtube-logo-icon-design-youtube-play-buttons-arrow-rectangle-symbol-png-clipart.jpg" alt="YouTube"></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          © 2025 Cambridge Üniversitesi. Tüm hakları saklıdır.
+        </div>
+      </footer>
+    <script>
+        const btn = document.getElementById("scrollTopBtn");
+        window.onscroll = () => {
+          btn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+        };
+        btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+        const counters = document.querySelectorAll('.stat span');
+        const speed = 200;
+        counters.forEach(counter => {
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = Math.ceil(target / speed);
+            if (count < target) {
+              counter.innerText = count + increment;
+              setTimeout(updateCount, 30);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+        });
+    
+        const track = document.querySelector(".carousel-track");
+      const prevBtn = document.querySelector(".prev");
+      const nextBtn = document.querySelector(".next");
+      const slides = document.querySelectorAll(".carousel-track img");
+      let index = 0;
+    
+      function updateCarousel() {
+        const slideWidth = slides[0].clientWidth;
+        track.style.transform = `translateX(-${index * slideWidth}px)`;
+      }
+    
+      prevBtn.addEventListener("click", () => {
+        index = (index - 1 + slides.length) % slides.length;
+        updateCarousel();
+      });
+    
+      nextBtn.addEventListener("click", () => {
+        index = (index + 1) % slides.length;
+        updateCarousel();
+      });
+    
+      window.addEventListener("resize", updateCarousel);
+      updateCarousel();
+    
+      function changeLanguage(langCode) {
+        const interval = setInterval(() => {
+          const frame = document.querySelector('iframe.goog-te-menu-frame');
+          if (frame) {
+            const innerDoc = frame.contentDocument || frame.contentWindow.document;
+            const langLinks = innerDoc.querySelectorAll('.goog-te-menu2-item span.text');
+    
+            const langElement = Array.from(langLinks).find(el =>
+              el.innerText.toLowerCase().includes(langCode.toLowerCase())
+            );
+    
+            if (langElement) {
+              langElement.click();
+              clearInterval(interval);
+            }
+          }
+        }, 500); 
+      }
+    
+      document.getElementById('customLangSelect').addEventListener('change', function () {
+        const selectedLang = this.value;
+        if (selectedLang) {
+          changeLanguage(selectedLang);
+        }
+      });
+        function changeLanguage(langCode) {
+          const langMap = {
+         tr: "tr",
+         en: "en",
+         de: "de",
+         fr: "fr",
+         ar: "ar",
+         ru: "ru"
+       };
+    
+     function changeLanguage(langCode) {
+       const googleLangCode = langMap[langCode];
+       if (!googleLangCode) return;
+    
+       const interval = setInterval(() => {
+         const select = document.querySelector("select.goog-tecombo");
+         if (select) {
+           select.value = googleLangCode;
+           select.dispatchEvent(new Event("change"));
+           clearInterval(interval);
+         }
+       }, 500);
+     }
+        }
+      
+        document.getElementById("customLangSelect").addEventListener("change", function () {
+          const selectedLang = this.value;
+          if (selectedLang) {
+            const url = new URL(window.location);
+            url.searchParams.set("lang", selectedLang);
+            window.history.replaceState({}, "", url);
+      
+            localStorage.setItem("selectedLanguage", selectedLang);
+      
+            changeLanguage(selectedLang);
+          }
+        });
+      
+        window.addEventListener("DOMContentLoaded", () => {
+          const storedLang = localStorage.getItem("selectedLanguage");
+          const urlLang = new URLSearchParams(window.location.search).get("lang");
+      
+          const langCode = urlLang || storedLang;
+      
+          if (langCode) {
+            document.getElementById("customLangSelect").value = langCode;
+            changeLanguage(langCode);
+          }
+        });
+        function performSearch(value = null) {
+        const query = value || document.getElementById("searchInput").value.toLowerCase();
+        const elements = document.querySelectorAll("h2, h3, h4, p");
+    
+        for (const el of elements) {
+          const text = el.textContent.toLowerCase();
+          if (text.includes(query)) {
+            el.scrollIntoView({ behavior: "smooth", block: "center" });
+            el.style.backgroundColor = "#ffffa0";
+            setTimeout(() => {
+              el.style.backgroundColor = "transparent";
+            }, 2000);
+            break;
+          }
+        }
+    
+        document.getElementById("suggestions").innerHTML = "";
+      }
+      function showSuggestions() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const suggestionsList = document.getElementById("suggestions");
+    suggestionsList.innerHTML = "";
+
+    if (!input) return;
+
+    const elements = document.querySelectorAll("h2, h3, h4, p");
+    const matches = [];
+
+    for (const el of elements) {
+      const text = el.textContent.trim();
+      if (text.toLowerCase().includes(input) && !matches.includes(text)) {
+        matches.push(text);
+      }
+    }
+
+    matches.slice(0, 5).forEach(match => {
+      const li = document.createElement("li");
+      li.textContent = match;
+      li.onclick = () => {
+        document.getElementById("searchInput").value = match;
+        performSearch(match.toLowerCase());
+      };
+      suggestionsList.appendChild(li);
+    });
+  }
+
+</script>
+<script>
+    function performSearch() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const elements = document.querySelectorAll("h2, h3, h4, p");
+      let matchCount = 0;
+      let firstMatch = null;
+    
+      elements.forEach(el => {
+        const text = el.textContent.toLowerCase();
+        if (input && text.includes(input)) {
+            el.classList.add("highlight");
+            setTimeout(() => el.classList.remove("highlight"), 2000);
+
+          if (!firstMatch) firstMatch = el;
+          matchCount++;
+        } else {
+          el.style.backgroundColor = "transparent";
+        }
+      });
+    
+      if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    
+      const resultText = document.getElementById("searchResult");
+      if (input.length < 2) {
+        resultText.textContent = "Lütfen en az 2 karakter girin.";
+      } else if (matchCount === 0) {
+        resultText.textContent = "Eşleşme bulunamadı.";
+      } else {
+        resultText.textContent = `${matchCount} sonuç bulundu.`;
+      }
+    }
+        const facultySidebarLinks = document.querySelectorAll(".faculty-sidebar a");
+        const facultySections = document.querySelectorAll(".faculty-main-content .faculty-section");
+        const FenEdebiyatFakultesiTitle = document.getElementById("fen-edebiyat-fakultesi-title");
+
+        facultySidebarLinks.forEach(link => {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                facultySidebarLinks.forEach(link => {
+                    link.classList.remove("active");
+                });
+                this.classList.add("active");
+                facultySections.forEach(section => {
+                    section.style.display = "none";
+                });
+                const targetId = this.getAttribute("href").substring(1);
+                document.getElementById(targetId).style.display = "block";
+
+                if (targetId === "fen-edebiyat-fakultesi") {
+                facultyTitle.textContent = "Fen Edebiyat Fakültesi";
+                } else if (targetId === "fakulte-hakkinda") {
+                    FenEdebiyatFakultesiTitle.textContent = "Fakülte Hakkında";
+                } else if (targetId === "akademik-kadro") {
+                    FenEdebiyatFakultesiTitle.textContent = "Akademik Kadro";
+                } else if (targetId === "dersler") {
+                    FenEdebiyatFakultesiTitle.textContent = "Dersler";
+                } else if (targetId === "arastirma") {
+                    FenEdebiyatFakultesiTitle.textContent = "Araştırma";
+                } else if (targetId === "ogrenci-hayati") {
+                    FenEdebiyatFakultesiTitle.textContent = "Öğrenci Hayatı";
+                } else if (targetId === "basvuru") {
+                    FenEdebiyatFakultesiTitle.textContent = "Başvuru";
+                }
+            });
+        });
+        </script>
+</body>
+</html>
